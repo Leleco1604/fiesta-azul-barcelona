@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Cake, Utensils, Gamepad2, PaintBucket, Soccer } from 'lucide-react';
+import { Cake, Utensils, Gamepad2, PaintBucket, Trophy } from 'lucide-react';
 
 const servicios = [
   {
@@ -24,7 +24,7 @@ const servicios = [
     descripcion: "Espacio creativo donde los niños pueden desarrollar su creatividad con actividades artísticas."
   },
   {
-    icon: <Soccer className="h-12 w-12 text-mmp-blue" />,
+    icon: <Trophy className="h-12 w-12 text-mmp-blue" />,
     titulo: "Campo de Fútbol",
     descripcion: "Mini campo de fútbol para que los pequeños disfruten de partidos emocionantes con sus amigos."
   }
