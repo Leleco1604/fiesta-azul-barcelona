@@ -1,9 +1,46 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { useToast } from "@/components/ui/use-toast";
 
 const Contacto = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    nombre: '',
+    telefono: '',
+    email: '',
+    fecha: '',
+    mensaje: ''
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Simulación de envío de formulario
+    toast({
+      title: "Mensaje enviado",
+      description: "Gracias por contactar con MMP Casa de Fiestas. Te responderemos pronto.",
+    });
+    
+    // Resetear formulario
+    setFormData({
+      nombre: '',
+      telefono: '',
+      email: '',
+      fecha: '',
+      mensaje: ''
+    });
+  };
+
   return (
     <section id="contacto" className="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white">
       <div className="container mx-auto px-4">
@@ -17,7 +54,7 @@ const Contacto = () => {
         <div className="grid md:grid-cols-2 gap-10">
           <div className="bg-white p-8 rounded-2xl shadow-lg">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">Envíanos un mensaje</h3>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="nombre" className="block text-gray-700 mb-2">Nombre</label>
@@ -27,6 +64,8 @@ const Contacto = () => {
                     className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-mmp-blue"
                     placeholder="Tu nombre"
                     required
+                    value={formData.nombre}
+                    onChange={handleChange}
                   />
                 </div>
                 <div>
@@ -37,6 +76,8 @@ const Contacto = () => {
                     className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-mmp-blue"
                     placeholder="Tu teléfono"
                     required
+                    value={formData.telefono}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -49,6 +90,8 @@ const Contacto = () => {
                   className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-mmp-blue"
                   placeholder="Tu email"
                   required
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
               
@@ -59,6 +102,8 @@ const Contacto = () => {
                   id="fecha"
                   className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-mmp-blue"
                   required
+                  value={formData.fecha}
+                  onChange={handleChange}
                 />
               </div>
               
@@ -70,10 +115,12 @@ const Contacto = () => {
                   className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-mmp-blue"
                   placeholder="Cuéntanos sobre tu evento..."
                   required
+                  value={formData.mensaje}
+                  onChange={handleChange}
                 ></textarea>
               </div>
               
-              <Button className="w-full bg-mmp-blue hover:bg-mmp-lightBlue text-white py-6 text-lg">
+              <Button type="submit" className="w-full bg-mmp-blue hover:bg-mmp-lightBlue text-white py-6 text-lg">
                 Enviar Mensaje
               </Button>
             </form>

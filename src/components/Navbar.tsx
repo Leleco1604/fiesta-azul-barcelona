@@ -6,6 +6,13 @@ import { Button } from '@/components/ui/button';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleReservar = () => {
+    const contactoElement = document.getElementById('contacto');
+    if (contactoElement) {
+      contactoElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="bg-white shadow-md py-4 sticky top-0 z-50">
       <div className="container mx-auto px-4 md:px-6">
@@ -23,7 +30,10 @@ const Navbar = () => {
             <a href="#contacto" className="text-gray-700 hover:text-mmp-blue font-medium">Contacto</a>
           </div>
 
-          <Button className="hidden md:block bg-mmp-blue hover:bg-mmp-lightBlue text-white">
+          <Button 
+            className="hidden md:block bg-mmp-blue hover:bg-mmp-lightBlue text-white"
+            onClick={handleReservar}
+          >
             Reservar Ahora
           </Button>
 
@@ -68,7 +78,13 @@ const Navbar = () => {
               >
                 Contacto
               </a>
-              <Button className="bg-mmp-blue hover:bg-mmp-lightBlue text-white w-full">
+              <Button 
+                className="bg-mmp-blue hover:bg-mmp-lightBlue text-white w-full"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  handleReservar();
+                }}
+              >
                 Reservar Ahora
               </Button>
             </div>

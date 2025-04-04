@@ -4,6 +4,20 @@ import { Button } from '@/components/ui/button';
 import { Calendar, MapPin } from 'lucide-react';
 
 const Hero = () => {
+  const scrollToServices = () => {
+    const serviciosElement = document.getElementById('servicios');
+    if (serviciosElement) {
+      serviciosElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleReservar = () => {
+    const contactoElement = document.getElementById('contacto');
+    if (contactoElement) {
+      contactoElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="inicio" className="hero-pattern min-h-[85vh] flex items-center">
       <div className="container mx-auto px-4 py-16 md:py-24">
@@ -34,10 +48,17 @@ const Hero = () => {
             </div>
             
             <div className="pt-4 flex flex-wrap gap-4">
-              <Button className="bg-mmp-blue hover:bg-mmp-lightBlue text-white text-lg px-8 py-6">
+              <Button 
+                className="bg-mmp-blue hover:bg-mmp-lightBlue text-white text-lg px-8 py-6"
+                onClick={handleReservar}
+              >
                 Reservar Ahora
               </Button>
-              <Button variant="outline" className="border-mmp-blue text-mmp-blue hover:bg-mmp-blue/10 text-lg px-8 py-6">
+              <Button 
+                variant="outline" 
+                className="border-mmp-blue text-mmp-blue hover:bg-mmp-blue/10 text-lg px-8 py-6"
+                onClick={scrollToServices}
+              >
                 Ver Servicios
               </Button>
             </div>
