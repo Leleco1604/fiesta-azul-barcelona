@@ -27,6 +27,7 @@ const Navbar = () => {
             <a href="#inicio" className="text-gray-700 hover:text-mmp-blue font-medium">Inicio</a>
             <a href="#servicios" className="text-gray-700 hover:text-mmp-blue font-medium">Servicios</a>
             <a href="#galeria" className="text-gray-700 hover:text-mmp-blue font-medium">Galería</a>
+            <a href="#menu" className="text-gray-700 hover:text-mmp-blue font-medium">Menú</a>
             <a href="#contacto" className="text-gray-700 hover:text-mmp-blue font-medium">Contacto</a>
           </div>
 
@@ -70,6 +71,13 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Galería
+              </a>
+              <a 
+                href="#menu" 
+                className="text-gray-700 hover:text-mmp-blue font-medium px-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Menú
               </a>
               <a 
                 href="#contacto" 
