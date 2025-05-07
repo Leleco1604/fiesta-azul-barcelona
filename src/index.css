@@ -15,7 +15,7 @@
     --popover-foreground: 0 0% 100%;
 
     --primary: 120 60% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
 
     --secondary: 120 30% 40%;
     --secondary-foreground: 0 0% 100%;
@@ -84,7 +84,7 @@
 
 @layer components {
   .service-card {
-    @apply bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-2;
+    @apply bg-black p-6 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-2;
   }
   
   .hero-pattern {
